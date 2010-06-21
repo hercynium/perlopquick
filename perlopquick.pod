@@ -21,7 +21,7 @@
     left              || //
     nonassoc          ..  ...
     right             ?:
-    right             = += -= *= etc.
+    right             = += -= *= etc. =()=
     left              , =>
     nonassoc          list operators (rightward)
     right             not
@@ -3645,6 +3645,34 @@ It is commonly used to ensure that a variable has a value:
 =head3 See also
 
 L</X = Y>, L</X E<sol>E<sol> Y>, L</X E<verbar>E<verbar> Y>
+
+=head2 X =()= Y
+
+=head3 Class
+
+This belongs to L<perlop/Assignment Operators>.
+
+=head3 Description
+
+This is the "temporary empty list assignment" operator. It is equivalent to 
+
+    $x = @{[m/PAT/g]};
+
+It assigns the number of matches made by m/PAT/g to X. This means that X 
+must be a valid lvalue (i.e. it must be something that can be assigned to).
+
+It is commonly used as clearer idiomatic syntax for finding out how many
+times a regex matches a string:
+
+=head3 Example
+
+    # count the total number of '=' and '~' characters in this string.
+    my $_ = "B=====D~~";
+    my $x =()= /=/g;    # $x is now 7
+
+=head3 See also
+
+L</X = Y>, L</X = (Y)>
 
 =head2 X, Y
 
