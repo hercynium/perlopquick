@@ -3672,7 +3672,7 @@ times a regex matches a string:
 
 =head3 See also
 
-L</X = Y>, L</X = (Y)>
+L</X = Y>, L</X = (Y)>, L<http://goatse.cx>
 
 =head2 X, Y
 
